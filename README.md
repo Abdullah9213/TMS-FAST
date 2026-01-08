@@ -1,170 +1,98 @@
-Thesis Management System (TMS) - FAST NUCES
-Course: Software Engineering (SE-B)
+# Thesis Management System (TMS) — FAST-NUCES
 
-Instructor: Mr. Asif Muhammad
+**Course:** Software Engineering (SE-B)  
+**Instructor:** Mr. Asif Muhammad  
+**Authors:** Abdullah (22i-2515) & Shoaib Mehmood (22i-2448)  
+**Department:** Computer Science, FAST — National University of Computer & Emerging Sciences
 
-Authors: Abdullah (22i-2515) & Shoaib Mehmood (22i-2448)
+---
 
-Department: Computer Science, FAST - National University of Computer & Emerging Sciences
+## Overview
 
-📖 Project Overview
-The Thesis Management System (TMS) is a web-based solution designed to digitize and streamline the manual thesis workflow for MS students, faculty, and administrators at FAST-NUCES.
+The Thesis Management System (TMS) is a web-based application that digitizes and streamlines the end-to-end thesis workflow for MS students, faculty, and academic officers at FAST-NUCES. It replaces manual forms and fragmented communication with a centralized platform for registration, submissions, feedback, grading, and panel management.
 
-Previously, the thesis process involved fragmented communication, manual form submissions (Thesis Registration, Supervisor Change, etc.), and difficult progress tracking. This system centralizes these activities, allowing students to register for thesis credits, submit proposals, receive feedback, and view grades, while enabling faculty to manage panels, evaluate submissions, and track student progress efficiently.
+## Key Features
 
-🚀 Key Features
-🎓 For Students
-Personal Dashboard: View registration details, program info, and current thesis status.
+- Students
+	- Personal dashboard for registration details and thesis status
+	- Thesis registration (Thesis I/II) and proposal submission
+	- Upload and versioned submission of proposal, mid-eval, and final report
+	- Receive timestamped feedback from supervisors/examiners
+	- Submit digital requests (Title Change, Supervisor Change, Examiner Change)
 
-Thesis Management: Register for Thesis I/II and submit research proposals.
+- Faculty (Supervisors & Examiners)
+	- Role-based views and access controls
+	- Manage and respond to student requests and form applications
+	- Enter and manage marks for proposals, mid-evals, presentations, and final reports
+	- View assigned students and defense schedules
 
-Document Submission: Upload thesis deliverables (Proposal, Mid-defense, Final Report) with version tracking.
+- Admin / Academic Officers
+	- Full CRUD for student and faculty user accounts
+	- Create and manage defense panels and examiner assignments
+	- Audit logging for sensitive operations (e.g., user insert/delete)
 
-Feedback Loop: Receive timestamped feedback directly from Supervisors and Examiners.
+## Architecture & Database
 
-Digital Forms: Submit requests for "Title Change," "Supervisor Change," or "Examiner Change" online.
+The application uses Microsoft SQL Server as its backend. The repository contains the database schema, seed data, and SQL objects required by the application:
 
-👨‍🏫 For Faculty (Supervisors & Examiners)
-Role-Based Access: Distinct views for Supervisors, Internal/External Examiners, and Committee Members.
+- Normalized relational schema (ERD/EERD)
+- Stored procedures and functions (e.g., `GetStudent_ThesisInfo`)
+- Triggers for security/auditing (e.g., `trg_AuditUsers`)
+- Views for reporting (Student Roles, Thesis Documents)
 
-Request Management: Accept or decline student thesis requests and form applications.
+## Repository Structure (high level)
 
-Grading System: Input and manage marks for Proposals, Mid-Evals, Presentations, and Final Reports.
+Documentation
 
-Panel Management: View assigned students and thesis defense schedules.
+	- `i222515_i222448_SE(B)_Final Report.pdf` — Project report & user guide
+	- `TMS_ERD.pdf` — Entity Relationship Diagram
+	- `TMS_EERD.pdf` — Enhanced ER Diagram
+	- `TMS Relational Schema.pdf` — Database schema blueprint
 
-🛠 For Admin/Academic Officers
-User Management: detailed CRUD operations for Students and Faculty.
+Database Scripts
 
-Panel Creation: Create defense panels and assign examiners to specific theses.
+	- `Refresh T_M_S.sql` — Drop/reset database
+	- `T_M_S_Creation.sql` — DDL: tables, constraints, keys
+	- `T_M_S Insertion.sql` — Seed/sample data
+	- `Queries_FInal project.sql` — Stored procedures, views, triggers
 
-Audit Logging: Automated tracking of sensitive user actions (Insert/Delete operations on Users) for security.
+Application
 
-🗄️ Database Architecture
-The system is built on a robust Microsoft SQL Server database. The repository includes the complete database design and implementation scripts:
+	- Frontend and backend project files (see project folders)
 
-ERD/EERD: Normalized relational schema handling complex relationships between Students, Faculty roles, and Theses.
+## Installation & Database Setup
 
-Stored Procedures & Functions: Custom scripts (e.g., GetStudent_ThesisInfo) to retrieve dynamic user dashboards.
+1. Open SQL Server Management Studio (SSMS) and connect to your instance.
+2. Execute `Refresh T_M_S.sql` to drop and recreate the `T_M_S` database.
+3. Execute `T_M_S_Creation.sql` to create tables, constraints, and keys.
+4. Execute `T_M_S Insertion.sql` to insert sample test data.
+5. Execute `Queries_FInal project.sql` to install stored procedures, functions, views, and triggers.
 
-Triggers: Security triggers (e.g., trg_AuditUsers) to automatically log changes to the Users table.
+Note: Running `Refresh T_M_S.sql` will remove any existing `T_M_S` database and data.
 
-Views: Pre-built views for generating reports on Student Roles and Thesis Documents.
+## Usage Examples (SQL)
 
-📂 Repository Structure
-Plaintext
+Retrieve a student's thesis dashboard:
 
-├── Documentation
-│   ├── i222515_i222448_SE(B)_Final Report.pdf  # Comprehensive project report & user guide
-│   ├── TMS_ERD.pdf                             # Entity Relationship Diagram
-│   ├── TMS_EERD.pdf                            # Enhanced Entity Relationship Diagram
-│   └── TMS Relational Schema.pdf               # Database Schema Blueprint
-│
-├── Database Scripts
-│   ├── Refresh T_M_S.sql                       # Script to drop/reset the database
-│   ├── T_M_S_Creation.sql                      # Main DDL script (Creates Tables & Constraints)
-│   ├── T_M_S Insertion.sql                     # DML script (Populates DB with dummy data)
-│   └── Queries_FInal project.sql               # Stored Procedures, Views, Triggers, and Complex Joins
-⚙️ Installation & Database Setup
-To set up the database environment locally using SQL Server Management Studio (SSMS):
-
-Open SSMS and connect to your local server instance.
-
-Reset/Initialize: Open and execute Refresh T_M_S.sql.
-
-Note: This will Drop the database T_M_S if it exists and create a fresh one.
-
-Create Schema: Open and execute T_M_S_Creation.sql.
-
-This builds all tables (Users, Roles, Theses, Submissions, Marks, etc.) and defines Foreign Keys.
-
-Seed Data: Open and execute T_M_S Insertion.sql.
-
-This inserts sample data (Students, Supervisors, Admin accounts) for testing.
-
-Setup Logic: Open and execute Queries_FInal project.sql.
-
-This installs the necessary Stored Procedures, Functions, and Triggers required for the application logic.
-
-🧪 Usage Examples (SQL)
-Once the database is set up, you can run the following test queries:
-
-1. Retrieve a Student's Thesis Dashboard:
-
-SQL
-
+```sql
 SELECT * FROM GetStudent_ThesisInfo('ali.khan');
-2. Check the Audit Log for User Changes:
+```
 
-SQL
+Check the audit log for user changes:
 
+```sql
 SELECT * FROM AuditLog;
-3. View Thesis Documents:
+```
 
-SQL
+View thesis documents:
 
+```sql
 SELECT * FROM UserThesisDocuments;
-👥 Contributors
-Abdullah (22i-2515)
+```
 
-Shoaib Mehmood (22i-2448)
-# TMS-FAST
+## Contributors
 
-TMS-FAST is a Windows Forms application for managing student/teacher workflows, submissions, and academic schedules. It was developed as a course project and includes a Visual Studio solution under the `login_page` folder plus SQL scripts in the `Database` folder to create and populate the database.
+- Abdullah (22i-2515)
+- Shoaib Mehmood (22i-2448)
 
-**Features**
-- **User login / signup**: basic authentication UI.
-- **Student submission**: students can submit assignments/results.
-- **Teacher workflows**: multiple teacher forms for submitting and managing marks.
-- **Supervisor features**: supervisor marks submission and examination changes.
-
-**Prerequisites**
-- Windows
-- Visual Studio 2017 or newer (with Windows Forms / .NET desktop workload)
-- .NET Framework 4.7.2
-- SQL Server (or compatible) to run the provided SQL scripts
-
-**Getting Started (open & run)**
-- Open the solution: [login_page/login_page.sln](login_page/login_page.sln)
-- In Visual Studio, set the startup project to `login_page` and build (Build → Build Solution).
-- Run the app (F5) or run the generated executable from `login_page/bin/Debug`.
-
-**Database setup**
-- See the SQL scripts in the `Database` folder: [Database/](Database)
-	- `T_M_S_Creation.sql` — create schema/tables
-	- `T_M_S Insertion.sql` — sample data insertion
-	- `Queries_FInal project.sql` — example queries used in the project
-- Import or run these scripts on your SQL Server instance and update the connection string in `login_page/App.config` if necessary.
-
-**Configuration**
-- Database connection string and other settings are stored in: [login_page/login_page/App.config](login_page/login_page/App.config)
-- If you change the target database or credentials, update that file before running the application.
-
-**Build and Packaging**
-- For a release build, switch to the `Release` configuration, build the solution, and distribute the EXE from `login_page/bin/Release`.
-
-**Notes & Troubleshooting**
-- Target framework is `.NET Framework 4.7.2` (see `login_page/login_page.csproj`). Ensure your Visual Studio installation supports it.
-- If Visual Studio complains about missing NuGet packages or references, restore packages and rebuild the solution.
-
-**Contributing**
-- This repository contains a classroom project. If you want to contribute, open an issue or submit a pull request with a clear description of changes.
-
-**Contact**
-- Project owner: Abdullah9213 — i222515@nu.edu.pk
-
-**License**
-- MIT
-
-**Detailed Report & Images**
-- A full project write-up with diagrams and screenshots is included as: [Final Report.pdf](Final%20Report.pdf). It contains the project overview, system design diagrams (ERD/EERD), screenshots of the application, and implementation details.
-- If you want the screenshots embedded directly in this `README.md`, I can extract images from `Final Report.pdf`, add them to `docs/images/`, and reference them here. This requires extracting images locally (using `pdfimages` or a PDF editor). If you want me to proceed, tell me and I will either:
-	1. Run extraction commands here if allowed, or
-	2. Provide exact commands for you to run locally and then I'll add the exported images into `docs/images/` and embed them in the README.
-
-Files with additional documentation and diagrams:
-- [Final Report.pdf](Final%20Report.pdf)
-- [TMS_ERD.pdf](TMS_ERD.pdf)
-- [TMS_EERD.pdf](TMS_EERD.pdf)
-- [TMS Relational Schema.pdf](TMS%20Relational%20Schema.pdf)
-
+---

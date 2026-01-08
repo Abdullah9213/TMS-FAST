@@ -40,11 +40,23 @@ The application uses Microsoft SQL Server as its backend. The repository contain
 - Triggers for security/auditing (e.g., `trg_AuditUsers`)
 - Views for reporting (Student Roles, Thesis Documents)
 
+### ERD
+<img width="691" height="398" alt="{009FF16F-DD85-4286-8A64-885C9297BCB2}" src="https://github.com/user-attachments/assets/0304d857-c440-4806-bb5a-8424f403bc9d" />
+
+### EERD
+<img width="635" height="349" alt="{D80BF326-62DB-401B-86F2-CC7B0E6D0A82}" src="https://github.com/user-attachments/assets/4ab71db7-0c4b-4554-aa38-0cef4a79ab41" />
+
+### Relational Schema
+<img width="474" height="388" alt="{ED86E181-6C37-4500-B379-2B7D970DDFE3}" src="https://github.com/user-attachments/assets/0191b4b7-af33-4d1d-b02a-16eff74ab9a9" />
+
+<img width="488" height="404" alt="{E0EA2DB7-46DD-49EA-A1EE-7BA2D4708F93}" src="https://github.com/user-attachments/assets/4c3baf25-9320-40d9-8c06-a8af0301483b" />
+
+
 ## Repository Structure (high level)
 
 Documentation
 
-	- `i222515_i222448_SE(B)_Final Report.pdf` — Project report & user guide
+	- `Final Report.pdf` — Project report & user guide
 	- `TMS_ERD.pdf` — Entity Relationship Diagram
 	- `TMS_EERD.pdf` — Enhanced ER Diagram
 	- `TMS Relational Schema.pdf` — Database schema blueprint
@@ -96,3 +108,4 @@ SELECT * FROM UserThesisDocuments;
 - Shoaib Mehmood (22i-2448)
 
 ---
+

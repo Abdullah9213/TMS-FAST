@@ -48,13 +48,10 @@ TMS-FAST is a Windows Forms application for managing student/teacher workflows, 
 
 **Detailed Report & Images**
 - A full project write-up with diagrams and screenshots is included as: [Final Report.pdf](Final%20Report.pdf). It contains the project overview, system design diagrams (ERD/EERD), screenshots of the application, and implementation details.
-- If you want the screenshots embedded directly in this `README.md`, I can extract images from `Final Report.pdf`, add them to `docs/images/`, and reference them here. This requires extracting images locally (using `pdfimages` or a PDF editor). If you want me to proceed, tell me and I will either:
-	1. Run extraction commands here if allowed, or
-	2. Provide exact commands for you to run locally and then I'll add the exported images into `docs/images/` and embed them in the README.
-
 Files with additional documentation and diagrams:
 - [Final Report.pdf](Final%20Report.pdf)
 - [TMS_ERD.pdf](TMS_ERD.pdf)
 - [TMS_EERD.pdf](TMS_EERD.pdf)
 - [TMS Relational Schema.pdf](TMS%20Relational%20Schema.pdf)
+
 
